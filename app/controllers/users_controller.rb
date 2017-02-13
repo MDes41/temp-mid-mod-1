@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to links_path
     else
-      render :new
+      # flash[:alert] = "Email is already taken"
+      redirect_to new_user_path
     end
   end
 
