@@ -1,0 +1,5 @@
+<% if @current_user %>
+  Welcome: <%= @current_user.email_address %>
+<% else %>
+  <%= link_to "Sign-up", new_user_path %>
+<% end %>
