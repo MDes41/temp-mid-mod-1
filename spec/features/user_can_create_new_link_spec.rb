@@ -10,8 +10,5 @@ describe "When I visit the links index page" do
 
     expect(current_path).to eq(links_path)
     expect(page).to have_content("Link Title is Texas Fight")
-
-
-
   end
 end

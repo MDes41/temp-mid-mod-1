@@ -6,6 +6,11 @@
       Link Title: <%= text_field_tag :title %>
       <%= submit_tag "Submit Link" %>
     <% end %>
+  <h3> Here is a list of my links </h3>
+    <% @links.map do |link| %>
+      Link Title is <%= link.title %>
+      Link URL is <%= link.url %><br><br>
+    <% end %>
   <% else %>
     <%= link_to "Sign-up", new_user_path %> or <%= link_to "Login", login_path %>
 <% end %>
