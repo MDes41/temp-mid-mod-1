@@ -14,7 +14,7 @@ gem 'rails_12factor', group: :production
 gem 'responders'
 gem 'awesome_print'
 gem 'sprockets-es6'
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # gem 'unicorn'
 
@@ -22,6 +22,10 @@ gem 'sprockets-es6'
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 group :development, :test do
