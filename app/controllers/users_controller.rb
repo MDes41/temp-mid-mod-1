@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to links_path
     else
       # flash[:alert] = "Email is already taken"
@@ -20,6 +21,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email_address, :password_digest, :password_confirmation)
+    params.require(:user).permit(:email_address, :password, :password_confirmation)
   end
 end

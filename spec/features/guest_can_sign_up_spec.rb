@@ -18,7 +18,7 @@ describe "When a guest visits /" do
   end
 
   it "they cannot sign up if email is taken" do
-    User.create(email_address: 'cdun@utexas.edu', password_digest: 'mystring', password_confirmation: 'mystring')
+    User.create(email_address: 'cdun@utexas.edu', password_digest: 'mystring')
 
     visit "/"
 
