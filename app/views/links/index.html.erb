@@ -1,6 +1,11 @@
 <% if current_user %>
   <%= link_to "Logout", logout_path, method: :delete %><br><br>
   Welcome: <%= current_user.email_address %>
+    <%= form_tag "/links" do %>
+      Link URL: <%= text_field_tag :url %>
+      Link Title: <%= text_field_tag :title %>
+      <%= submit_tag "Submit Link" %>
+    <% end %>
   <% else %>
     <%= link_to "Sign-up", new_user_path %> or <%= link_to "Login", login_path %>
 <% end %>

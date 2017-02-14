@@ -7,6 +7,15 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
+def stub_login_user
+  User.create(email_address: 'cdun@utexas.edu', password_digest: 'mystring')
+  visit '/'
+  click_on 'Login'
+  fill_in "email_address", with: 'cdun@utexas.edu'
+  fill_in "password", with: 'mystring'
+  click_on 'Submit'
+end
+
 Capybara.javascript_driver = :poltergeist
 # Add additional requires below this line. Rails is not loaded until this point!
 
