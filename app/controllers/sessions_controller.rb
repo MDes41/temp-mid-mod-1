@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       flash.now[:success] = "Logged in!"
       redirect_to links_path
     else
+      flash.now[:notice] = "Unsuccesful Login!"
       render :new
     end
   end
