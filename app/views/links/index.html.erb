@@ -9,7 +9,11 @@
   <h3> Here is a list of my links </h3>
     <% @links.map do |link| %>
       Link Title is <%= link.title %>
-      Link URL is <%= link.url %><br><br>
+      <div class='link' data-link-id=<%= link.id %>>Link URL is <%= link.url %>
+        <div class='read-status'><%= link.read %></div>
+        <%= link_to 'Mark as Read', api_v1_link_path(link), class: 'mark-as-read' %>
+        <br><br>
+        <div>
     <% end %>
   <% else %>
     <%= link_to "Sign-up", new_user_path %> or <%= link_to "Login", login_path %>

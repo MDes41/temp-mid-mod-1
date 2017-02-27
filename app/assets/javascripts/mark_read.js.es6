@@ -14,10 +14,17 @@ function markAsRead(e) {
     data: { read: true },
   }).then(updateLinkStatus)
     .fail(displayFailure);
+
 }
 
 function updateLinkStatus(link) {
   $(`.link[data-link-id=${link.id}]`).find(".read-status").text(link.read);
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:2999/reads",
+    data: { url: link.url },
+  }).then()
+    .fail();
 }
 
 function displayFailure(failureData){
